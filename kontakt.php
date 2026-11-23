@@ -7,7 +7,7 @@
 $D = @parse_ini_file(__DIR__ . '/daten.txt') ?: [];
 $EMPFAENGER = $D['email']    ?? '';
 $ABSENDER   = $D['absender'] ?? $EMPFAENGER;
-$FIRMA      = $D['firma']    ?? 'VS Sachverständiger';
+$FIRMA      = $D['firma']    ?? 'SV Sachverständiger';
 $TELEFON    = $D['telefon']  ?? '';
 $BESTAETIGUNG_AN_KUNDEN = strtolower(trim($D['bestaetigung'] ?? 'ja')) !== 'nein';
 

@@ -1,6 +1,6 @@
-# VS Sachverständiger – Webseite
+# SV Sachverständiger – Webseite
 
-Webseite für VS Sachverständiger (Kfz-Gutachten, Bewertung, Beratung) in Ingolstadt, Pfaffenhofen und Umgebung.
+Webseite für SV Sachverständiger (Kfz-Gutachten, Bewertung, Beratung) in Ingolstadt, Pfaffenhofen und Umgebung.
 
 | Datei | Inhalt |
 | --- | --- |
