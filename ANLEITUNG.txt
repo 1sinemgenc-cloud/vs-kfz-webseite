@@ -65,9 +65,11 @@ Die Texte stehen in  index.html. Kleine Änderungen gehen so:
   5. Speichern und die Webseite im Browser neu laden.
   Hat etwas nicht geklappt? Die Sicherungskopie wieder hochladen.
 
-Für größere Änderungen (neuer Bereich, neues Design) kann JEDER
-Webdesigner helfen: Die Seite ist reines HTML ohne besondere Software,
-ohne Baukasten und ohne Abhängigkeit von einer Person oder Firma.
+Für größere Änderungen (neuer Bereich, neues Design) kann ein
+Webdesigner Ihrer Wahl helfen – aber nur, wenn Sie ihm selbst Zugang
+geben. Ohne Ihre Zugangsdaten beim Webhoster kann niemand die Seite
+ändern. Die Seite ist reines HTML ohne Baukasten – Sie sind also an
+keine Person und keine Firma gebunden.
 
 
 5. SICHERUNG
