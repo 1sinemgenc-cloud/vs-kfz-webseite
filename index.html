@@ -678,7 +678,7 @@ footer{background:#0b0f10;color:#99a6ab;font-size:.92rem;padding:40px 0 34px}
           <h5>2. Hosting</h5>
           <p>Diese Website wird bei <span data-cfg="hoster">[Hoster ergänzen]</span> gehostet. Beim Aufruf werden technisch notwendige Daten (IP-Adresse, Datum, Uhrzeit, Browser) in Server-Logfiles verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
           <h5>3. Anfrageformular und Kontakt</h5>
-          <p>Ihre Angaben (Name, Anschrift, Kontakt-, Fahrzeug- und Schadendaten) verarbeiten wir zur Bearbeitung Ihrer Anfrage, Art. 6 Abs. 1 lit. b DSGVO. Die Übermittlung erfolgt über <span data-cfg="formdienst">[Formular-Dienst ergänzen]</span>. Die Daten werden gelöscht, sobald sie nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+          <p>Ihre Angaben (Name, Anschrift, Kontakt-, Fahrzeug- und Schadendaten) verarbeiten wir zur Bearbeitung Ihrer Anfrage, Art. 6 Abs. 1 lit. b DSGVO. Die Übermittlung erfolgt verschlüsselt per E-Mail über unseren Webhoster; es werden keine Drittanbieter eingesetzt. Die Daten werden gelöscht, sobald sie nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
           <h5>4. Weitergabe</h5>
           <p>Zur Schadenregulierung geben wir Gutachten und erforderliche Daten mit Ihrem Einverständnis an Versicherungen, Rechtsanwälte oder Werkstätten weiter.</p>
           <h5>5. Cookies, Tracking, Schriften</h5>
@@ -707,12 +707,12 @@ const CONFIG = {
   qualifikation:"Lackiertechniker, Kfz-Sachverständiger",
   zertifikat:   "Zertifizierung ergänzen",   // z. B. "Sachverständiger (TÜV)"
   versicherung: "bitte ergänzen: Name und Sitz des Versicherers, Geltungsbereich",
-  hoster:       "[Hoster ergänzen, z. B. IONOS]",
-  formdienst:   "[Formular-Dienst ergänzen, z. B. Formspree]",
-  /* Formular-Versand: bei formspree.io kostenlos ein Formular anlegen und die
-     Adresse hier eintragen, z. B. "https://formspree.io/f/abcdwxyz".
-     Leer lassen = das E-Mail-Programm des Besuchers öffnet sich vorausgefüllt. */
-  formEndpoint: ""
+  hoster:       "[Webhoster ergänzen, z. B. ALL-INKL.COM – Neue Medien Münnich]",
+  /* Formular-Versand: Die Datei kontakt.php liegt neben dieser Datei beim Webhoster
+     und verschickt jede Anfrage als E-Mail. Empfänger-Adresse = oben in kontakt.php.
+     Funktioniert kontakt.php nicht (z. B. in der Vorschau), öffnet sich beim Besucher
+     automatisch sein E-Mail-Programm mit allen Angaben. */
+  formEndpoint: "kontakt.php"
 };
 
 {
@@ -764,24 +764,24 @@ const CONFIG = {
     });
     if(firstBad){msg.textContent='Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Datenschutzerklärung.';msg.className='msg err';firstBad.focus();return;}
     if(form._gotcha.value)return;
-    const data=new FormData(form);data.delete('_gotcha');
-    if(CONFIG.formEndpoint){
-      btn.disabled=true;btn.firstChild.textContent='Wird gesendet … ';
-      try{
-        data.append('_subject','Neue Gutachten-Anfrage: '+data.get('Vorname')+' '+data.get('Nachname'));
-        const r=await fetch(CONFIG.formEndpoint,{method:'POST',body:data,headers:{Accept:'application/json'}});
-        if(!r.ok)throw new Error();
-        form.reset();update();
-        msg.textContent='Vielen Dank. Ihre Anfrage ist bei uns eingegangen – wir melden uns schnellstmöglich.';msg.className='msg ok';
-      }catch(err){
-        msg.textContent='Die Anfrage konnte nicht gesendet werden. Bitte rufen Sie uns an: '+CONFIG.telefon;msg.className='msg err';
-      }finally{btn.disabled=false;btn.firstChild.textContent='Anfrage senden ';}
-    }else{
+    const data=new FormData(form);
+    const mailto=()=>{
       let body='Neue Gutachten-Anfrage\n\n';
-      for(const [k,v] of data.entries()){if(v&&v.toString().trim())body+=k+': '+v+'\n';}
+      for(const [k,v] of data.entries()){if(k!=='_gotcha'&&v&&v.toString().trim())body+=k+': '+v+'\n';}
       location.href='mailto:'+CONFIG.email+'?subject='+encodeURIComponent('Gutachten-Anfrage – '+data.get('Nachname')+' – '+data.get('Kennzeichen'))+'&body='+encodeURIComponent(body);
       msg.textContent='Ihr E-Mail-Programm wurde mit allen Angaben geöffnet. Bitte senden Sie die E-Mail dort ab.';msg.className='msg ok';
-    }
+    };
+    if(!CONFIG.formEndpoint){mailto();return;}
+    btn.disabled=true;btn.firstChild.textContent='Wird gesendet … ';
+    try{
+      const r=await fetch(CONFIG.formEndpoint,{method:'POST',body:data,headers:{Accept:'application/json'}});
+      let res=null;try{res=await r.json();}catch(x){}
+      if(!res){mailto();return;}
+      if(!res.ok){msg.textContent=(res.text||'Die Anfrage konnte nicht gesendet werden.')+' Sie erreichen uns auch telefonisch: '+CONFIG.telefon;msg.className='msg err';return;}
+      form.reset();update();
+      msg.textContent='Vielen Dank. Ihre Anfrage ist bei uns eingegangen – Sie erhalten gleich eine Bestätigung per E-Mail.';msg.className='msg ok';
+    }catch(err){mailto();}
+    finally{btn.disabled=false;btn.firstChild.textContent='Anfrage senden ';}
   });
 }
 </script>

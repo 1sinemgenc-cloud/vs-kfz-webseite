@@ -2,9 +2,13 @@
 
 Webseite für SV Sachverständiger (Kfz-Gutachten, Bewertung, Beratung) in Ingolstadt, Pfaffenhofen und Umgebung.
 
-## Daten ändern
-Alle Kontaktdaten (Telefon, E-Mail, Adresse, Impressum) stehen ganz unten in `index.html` im Block `CONFIG`.
-Dort ändern – sie erscheinen automatisch überall auf der Seite.
+## Dateien
+- `index.html` – die komplette Webseite (Design, Texte, Logo, Schrift)
+- `kontakt.php` – verschickt Anfragen aus dem Formular als E-Mail (läuft beim Webhoster, nicht auf GitHub Pages)
 
-## Online stellen (GitHub Pages)
-Settings → Pages → Source: „Deploy from a branch“ → Branch `main`, Ordner `/ (root)` → Save.
+## Daten ändern
+- Kontaktdaten, Impressum: ganz unten in `index.html` im Block `CONFIG`
+- Empfänger-E-Mail für Anfragen: ganz oben in `kontakt.php`
+
+## Online stellen
+Beide Dateien beim Webhoster (z. B. ALL-INKL) im Hauptordner der Domain hochladen.
