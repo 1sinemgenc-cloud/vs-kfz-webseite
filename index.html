@@ -157,7 +157,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 
 /* ---------- Team ---------- */
 .team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
-.person{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;align-items:start;padding-top:28px;border-top:1px solid var(--ink)}
+.person{display:block;padding-top:28px;border-top:1px solid var(--ink)}
 .photo{aspect-ratio:4/5;border-radius:14px;background:linear-gradient(160deg,#e9eef0,#d3dbde);display:grid;place-items:center;text-align:center;font-size:.82rem;color:#7b878c;padding:14px}
 .person .role{color:var(--petrol);font-weight:500;margin-top:6px;font-size:.95rem}
 .person p{color:var(--muted);margin-top:14px;font-size:.97rem}
@@ -479,7 +479,6 @@ footer{background:#0b0f10;color:#99a6ab;font-size:.92rem;padding:40px 0 34px}
     </div>
     <div class="team-grid">
       <article class="person">
-        <div class="photo">Foto Volkan<br>800 × 1000 px</div>
         <div>
           <h3>Volkan Aydindag</h3>
           <p class="role">Lackiertechniker und Kfz-Sachverständiger</p>
@@ -488,7 +487,6 @@ footer{background:#0b0f10;color:#99a6ab;font-size:.92rem;padding:40px 0 34px}
         </div>
       </article>
       <article class="person">
-        <div class="photo">Foto Salih<br>800 × 1000 px</div>
         <div>
           <h3>Salih</h3>
           <p class="role">Ansprechpartner in Pfaffenhofen</p>
