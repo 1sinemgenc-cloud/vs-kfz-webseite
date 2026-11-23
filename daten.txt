@@ -1,5 +1,5 @@
 ; ==================================================================
-;  DATEN DER WEBSEITE  –  SV Sachverständiger
+;  DATEN DER WEBSEITE  –  VS Sachverständiger
 ; ------------------------------------------------------------------
 ;  So ändern Sie etwas:
 ;  1. Nur den Text ZWISCHEN den Anführungszeichen "..." ändern.
@@ -11,7 +11,7 @@
 
 
 ; ---------- Firma ----------
-firma         = "SV Sachverständiger"
+firma         = "VS Sachverständiger"
 inhaber       = "Volkan Aydindag"
 region        = "Ingolstadt, Pfaffenhofen und Umgebung"
 
