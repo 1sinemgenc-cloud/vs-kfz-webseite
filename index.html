@@ -128,6 +128,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 .rights-grid p{color:var(--muted);margin-top:16px}
 .rights-grid p strong{color:var(--ink);font-weight:600}
 .fine{font-size:.86rem;color:var(--muted)}
+.zero{margin-top:30px;padding:clamp(20px,3vw,28px);background:var(--soft);border:1px solid var(--line);border-left:3px solid var(--tuerkis);border-radius:14px}
+.zero h3{font-size:1.15rem}
+.rights-grid .zero p{margin-top:10px}
+.zero p b,.zero li b{color:var(--ink);font-weight:600}
+.zero ul{margin-top:14px;padding-left:1.1rem;color:var(--muted)}
+.zero li{margin:.4rem 0}
+.fact a{color:var(--tuerkis);text-decoration:underline;text-underline-offset:3px}
 .check{list-style:none;counter-reset:c;border-top:1px solid var(--ink)}
 .check li{counter-increment:c;display:grid;grid-template-columns:40px minmax(0,1fr);gap:8px;padding:16px 0;border-bottom:1px solid var(--line)}
 .check li::before{content:counter(c);font-weight:600;color:var(--petrol);font-variant-numeric:tabular-nums}
@@ -358,7 +365,7 @@ footer{background:#0b0f10;color:#99a6ab;font-size:.92rem;padding:40px 0 34px}
   <div class="wrap">
     <div class="fact"><strong>24 h</strong><span>bis zur Besichtigung, meist früher</span></div>
     <div class="fact"><strong>1–3 Tage</strong><span>bis zum fertigen Gutachten</span></div>
-    <div class="fact"><strong>0 €</strong><span>für Geschädigte bei Fremdverschulden*</span></div>
+    <div class="fact"><strong>0 €</strong><span>für Geschädigte bei Fremdverschulden – <a href="#kosten">so funktioniert’s</a></span></div>
     <div class="fact"><strong>Vor Ort</strong><span>zu Hause, in der Werkstatt, im Betrieb</span></div>
   </div>
 </div>
@@ -421,7 +428,17 @@ footer{background:#0b0f10;color:#99a6ab;font-size:.92rem;padding:40px 0 34px}
       <h2>Sie haben das Recht auf einen eigenen Gutachter.</h2>
       <p>Nach einem unverschuldeten Unfall dürfen Sie einen <strong>unabhängigen Sachverständigen Ihrer Wahl</strong> beauftragen. Die Kosten gehören zum Schaden und werden in der Regel von der Haftpflichtversicherung des Unfallverursachers getragen.</p>
       <p>Der Gutachter, den die gegnerische Versicherung anbietet, arbeitet in deren Auftrag. Mit einem eigenen Gutachten stellen Sie sicher, dass <strong>alle Schadenpositionen</strong> erfasst werden.</p>
-      <p class="fine">* Bei Bagatellschäden (je nach Rechtsprechung etwa unter 750–1.000 €) genügt meist ein Kurzgutachten oder Kostenvoranschlag. Bei Teil- oder Mitschuld werden die Kosten anteilig übernommen. Wir beraten Sie gern vorab.</p>
+      <div class="zero" id="kosten">
+        <h3>Was bedeuten die 0 €?</h3>
+        <p>Wer unverschuldet einen Unfall hatte, zahlt für das Gutachten nichts. Die Gutachterkosten gehören zum Schaden und werden von der Haftpflichtversicherung des Unfallverursachers bezahlt – genau wie die Reparatur.</p>
+        <p><b>Beispiel:</b> Ihnen fährt jemand an der Ampel auf. Wir erstellen das Gutachten, die Rechnung geht an die Versicherung des anderen Fahrers. Mit einer Abtretung rechnen wir direkt mit der Versicherung ab – Sie strecken nichts vor.</p>
+        <ul>
+          <li><b>Mitschuld:</b> Die Versicherung zahlt nur ihren Anteil. Bei 30 % Mitschuld übernimmt sie 70 % der Kosten.</li>
+          <li><b>Selbst verschuldet:</b> Die Kosten trägt der Auftraggeber, z. B. beim Kaskogutachten.</li>
+          <li><b>Bagatellschaden:</b> Bei sehr kleinen Schäden (je nach Rechtsprechung etwa unter 750–1.000 €) zahlt die Versicherung meist nur einen Kostenvoranschlag.</li>
+        </ul>
+        <p class="fine">Unsicher, was für Sie gilt? Rufen Sie uns an – die Erstberatung ist unverbindlich.</p>
+      </div>
     </div>
     <div>
       <h3 class="check-title">Direkt nach dem Unfall</h3>
