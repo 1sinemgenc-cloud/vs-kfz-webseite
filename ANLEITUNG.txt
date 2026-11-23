@@ -6,8 +6,8 @@
 
 1. WELCHE DATEIEN GIBT ES?
 ------------------------------------------------------------------
-Die ganze Webseite besteht aus nur drei Dateien. Sie liegen beim
-Webhoster (z. B. ALL-INKL) im Hauptordner der Domain:
+Die Webseite besteht aus drei Dateien plus dieser Anleitung. Alle
+liegen beim Webhoster (z. B. ALL-INKL) im Hauptordner der Domain:
 
   daten.txt     ->  Telefon, E-Mail, Adresse, Impressum.
                     HIER ändern Sie Ihre Daten.
@@ -17,7 +17,7 @@ Webhoster (z. B. ALL-INKL) im Hauptordner der Domain:
   kontakt.php   ->  Verschickt die Anfragen aus dem Formular
                     als E-Mail. Hier nie etwas ändern.
 
-Diese Anleitung (ANLEITUNG.txt) kann ebenfalls dort liegen.
+  ANLEITUNG.txt ->  Diese Anleitung.
 
 
 2. DATEN ÄNDERN (Telefon, E-Mail, Adresse, Impressum)
@@ -32,6 +32,12 @@ Diese Anleitung (ANLEITUNG.txt) kann ebenfalls dort liegen.
 
   5. Speichern. Die Webseite zeigt die neuen Daten sofort.
 
+  Zusätzlich gibt es zwei freiwillige Angaben:
+  - zeiten    = Erreichbarkeit, z. B. "Mo–Fr 8–18 Uhr". Erscheint unter
+                der Telefonnummer.
+  - whatsapp  = Handynummer für WhatsApp. Ist sie eingetragen, erscheinen
+                überall WhatsApp-Knöpfe. Leer lassen "" = kein WhatsApp.
+
   Wichtig:
   - Die Anführungszeichen "..." stehen lassen.
   - Die Wörter links vom Gleichheitszeichen nicht ändern.
@@ -39,13 +45,28 @@ Diese Anleitung (ANLEITUNG.txt) kann ebenfalls dort liegen.
     kommen auch alle Formular-Anfragen an diese Adresse.
 
 
-3. ANFRAGEN AUS DEM FORMULAR
+3. VOR DEM START (einmalig abhaken)
+------------------------------------------------------------------
+  [ ] In daten.txt alle Platzhalter ersetzen: telefon, email, adresse,
+      absender, ustid, versicherung, hoster, zertifikat.
+      (Steht bei zertifikat noch „ergänzen“, wird es nicht angezeigt.)
+  [ ] Impressum und Datenschutzerklärung rechtlich prüfen lassen
+      (z. B. e-recht24 oder Anwalt).
+  [ ] Eine Test-Anfrage über das Formular schicken und prüfen, ob sie
+      ankommt (auch im Spam-Ordner nachsehen).
+  [ ] Auf dem Handy öffnen und einmal den „Anrufen“-Knopf ausprobieren.
+
+
+4. ANFRAGEN AUS DEM FORMULAR
 ------------------------------------------------------------------
 Jede Anfrage kommt als E-Mail an die Adresse aus daten.txt (email).
   - Betreff z. B.: „Neue Anfrage: Unfallgutachten – Max Muster – IN-AB123“
   - Auf „Antworten“ klicken = Antwort geht direkt an den Kunden.
   - Der Kunde bekommt automatisch eine Eingangsbestätigung.
     Abschalten: in daten.txt  bestaetigung = "nein"
+  - Spam-Schutz ist eingebaut: Programme, die das Formular automatisch
+    ausfüllen, werden aussortiert. Vom selben Anschluss gehen höchstens
+    5 Anfragen pro Stunde durch.
 
 Kommen keine Anfragen mehr an?
   - Im Spam-Ordner nachsehen.
@@ -54,7 +75,7 @@ Kommen keine Anfragen mehr an?
     keine E-Mails mehr“ – das können die prüfen.
 
 
-4. TEXTE ÄNDERN (z. B. eine neue Leistung)
+5. TEXTE ÄNDERN (z. B. eine neue Leistung)
 ------------------------------------------------------------------
 Die Texte stehen in  index.html. Kleine Änderungen gehen so:
   1. Vorher eine Sicherungskopie machen: index.html herunterladen.
@@ -72,14 +93,14 @@ geben. Ohne Ihre Zugangsdaten beim Webhoster kann niemand die Seite
 keine Person und keine Firma gebunden.
 
 
-5. SICHERUNG
+6. SICHERUNG
 ------------------------------------------------------------------
-Alle drei Dateien einmal herunterladen und an einem sicheren Ort
+Alle Dateien einmal herunterladen und an einem sicheren Ort
 speichern (z. B. USB-Stick oder Cloud). Damit lässt sich die Webseite
 bei jedem Anbieter in wenigen Minuten wiederherstellen.
 
 
-6. WICHTIGE ZUGÄNGE (bitte sicher aufbewahren, z. B. im Ordner im Büro)
+7. WICHTIGE ZUGÄNGE (bitte sicher aufbewahren, z. B. im Ordner im Büro)
 ------------------------------------------------------------------
   Webhoster:            ______________________________
   Kundennummer/Login:   ______________________________

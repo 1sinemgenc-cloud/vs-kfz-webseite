@@ -20,6 +20,11 @@ region        = "Ingolstadt, Pfaffenhofen und Umgebung"
 telefon       = "0000 / 000 000 00"
 email         = "info@ihre-domain.de"
 adresse       = "Musterstraße 1, 85049 Ingolstadt"
+; Erreichbarkeit unter der Telefonnummer, z. B. "Mo–Fr 8–18 Uhr, Sa nach Vereinbarung".
+; Leer lassen "" = wird nicht angezeigt.
+zeiten        = ""
+; WhatsApp-Nummer (Handy). Leer lassen "" = kein WhatsApp-Knopf auf der Webseite.
+whatsapp      = ""
 
 
 ; ---------- Anfrageformular ----------

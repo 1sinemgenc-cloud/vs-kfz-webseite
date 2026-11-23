@@ -13,9 +13,13 @@ $BESTAETIGUNG_AN_KUNDEN = strtolower(trim($D['bestaetigung'] ?? 'ja')) !== 'nein
 
 /* ---------- ab hier nichts ändern nötig ---------- */
 date_default_timezone_set('Europe/Berlin');
+mb_internal_encoding('UTF-8');
 header('Content-Type: application/json; charset=utf-8');
 
-function antwort($ok, $text = '') { echo json_encode(['ok' => $ok, 'text' => $text]); exit; }
+function antwort($ok, $text = '') {
+  global $BESTAETIGUNG_AN_KUNDEN;
+  echo json_encode(['ok' => $ok, 'text' => $text, 'bestaetigung' => $BESTAETIGUNG_AN_KUNDEN]); exit;
+}
 function feld($name) {
   $v = isset($_POST[$name]) ? trim((string)$_POST[$name]) : '';
   $v = str_replace(["\r", "\0"], '', $v);
@@ -26,6 +30,14 @@ function zeile($v) { return str_replace("\n", ' ', $v); } // keine Zeilenumbrüc
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') antwort(false, 'Ungültiger Aufruf.');
 if (!filter_var($EMPFAENGER, FILTER_VALIDATE_EMAIL)) antwort(false, 'Die Anfrage konnte nicht gesendet werden.');
 if (feld('_gotcha') !== '') antwort(true); // Spam-Schutz: Bots füllen das unsichtbare Feld aus
+// Spam-Schutz: Wer das Formular in weniger als 3 Sekunden absendet, ist ein Programm, kein Mensch
+$t = (int)feld('_t');
+if ($t > 0 && (microtime(true) * 1000 - $t) < 3000) antwort(true);
+
+// Spam-Schutz: höchstens 5 Anfragen pro Stunde vom selben Anschluss
+$sperrdatei = sys_get_temp_dir() . '/sv_formular_' . md5(($_SERVER['REMOTE_ADDR'] ?? '') . __DIR__);
+$zeiten = array_filter(array_map('intval', explode(',', (string)@file_get_contents($sperrdatei))), function ($z) { return $z > time() - 3600; });
+if (count($zeiten) >= 5) antwort(false, 'Es wurden bereits mehrere Anfragen gesendet. Bitte rufen Sie uns an.');
 
 foreach (['Vorname', 'Nachname', 'Strasse', 'PLZ', 'Ort', 'Telefon', 'E-Mail', 'Hersteller', 'Modell', 'Kennzeichen', 'Beschreibung'] as $pflicht) {
   if (feld($pflicht) === '') antwort(false, 'Bitte alle Pflichtfelder ausfüllen.');
@@ -64,6 +76,8 @@ $kopf .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 $gesendet = mail($EMPFAENGER, '=?UTF-8?B?' . base64_encode($betreff) . '?=', $text, $kopf, '-f' . $ABSENDER);
 if (!$gesendet) antwort(false, 'Die Anfrage konnte nicht gesendet werden.');
+$zeiten[] = time();
+@file_put_contents($sperrdatei, implode(',', $zeiten));
 
 if ($BESTAETIGUNG_AN_KUNDEN) {
   $b  = "Guten Tag " . $name . ",\n\n";
