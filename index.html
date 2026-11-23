@@ -56,7 +56,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdro
 
 /* Hero */
 .hero{background:radial-gradient(120% 140% at 85% 0%,#1d2a2d 0%,#111618 55%);color:#e7edef;border-bottom:4px solid var(--tuerkis);padding:clamp(56px,7vw,100px) 0}
-.hero-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,72px);align-items:center}
 .hero .kicker{color:var(--tuerkis)}
 .hero h1{color:#fff;font-size:clamp(2.4rem,5vw,3.9rem);line-height:1.03;letter-spacing:-.035em}
 .hero h1 em{font-style:normal;color:var(--tuerkis)}
@@ -69,6 +69,18 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdro
 .promise .tick svg{width:15px;height:15px}
 .promise strong{display:block;color:#fff;font-weight:600}
 .promise span{font-size:.95rem;color:#a9b7bb}
+
+.mini{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 20px;margin-top:30px}
+.mini li{display:flex;gap:10px;align-items:center;font-size:.95rem;color:#dfe6e8;font-weight:500}
+.mini .tick{flex:none;width:22px;height:22px;border-radius:50%;background:var(--tuerkis);display:grid;place-items:center}
+.mini .tick svg{width:12px;height:12px}
+.drawing{position:relative;margin:0}
+.drawing svg{display:block;width:100%;height:auto}
+.drawing figcaption{font-size:.82rem;color:#8d9a9f;text-align:right;margin-top:2px}
+.drawing .pulse{animation:pulse 2.6s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{0%{opacity:.55;transform:scale(1)}100%{opacity:0;transform:scale(2.6)}}
+@media (prefers-reduced-motion:reduce){.drawing .pulse{animation:none;opacity:0}}
+@media (max-width:600px){.mini{grid-template-columns:minmax(0,1fr)}}
 
 /* Kennzahlen */
 .trust{border-bottom:1px solid var(--line)}
@@ -288,13 +300,69 @@ footer a:hover{color:#fff}
         <a href="#auftrag" class="btn">Gutachten anfragen <span class="arrow">→</span></a>
         <a href="tel:+4900000000000" data-cfg-tel class="btn ghost"><span data-cfg="telefon">0000 / 000 000 00</span></a>
       </div>
+      <ul class="mini">
+        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#111618" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Besichtigung innerhalb von 24 Stunden</li>
+        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#111618" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Gutachten in 1–3 Werktagen</li>
+        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#111618" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Unabhängig von Versicherungen</li>
+        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#111618" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Lack-Expertise aus der Praxis</li>
+      </ul>
     </div>
-    <ul class="promise">
-      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#111618" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><strong>Besichtigung innerhalb von 24 Stunden</strong><span>bei Ihnen zu Hause, in der Werkstatt oder am Arbeitsplatz</span></div></li>
-      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#111618" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><strong>Gutachten in 1–3 Werktagen</strong><span>digital per E-Mail, auf Wunsch auch gedruckt</span></div></li>
-      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#111618" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><strong>Unabhängig von Versicherungen</strong><span>wir arbeiten ausschließlich in Ihrem Auftrag</span></div></li>
-      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#111618" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><strong>Lack-Expertise aus der Praxis</strong><span>Lackschichtdickenmessung an jedem relevanten Bauteil</span></div></li>
-    </ul>
+<figure class="drawing">
+          <svg viewBox="0 0 820 440" role="img" aria-label="Technische Zeichnung eines Fahrzeugs mit drei markierten Befunden: Stoßfänger hinten, Tür mit Originallack, Kotflügel nachlackiert">
+            <defs>
+              <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="rgba(255,255,255,.06)" stroke-width=".6"/></pattern>
+              <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d6b72"/><stop offset="1" stop-color="#1a3a3f"/></linearGradient>
+              <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b3337"/><stop offset="1" stop-color="#1a2023"/></linearGradient>
+            </defs>
+            <rect x="0" y="0" width="820" height="440" fill="url(#grid)"/>
+            <!-- Maßlinie -->
+            <g stroke="#5b6a70" stroke-width="1" fill="none">
+              <path d="M70 392H760"/><path d="M70 384v16M760 384v16"/>
+            </g>
+            <text x="415" y="414" text-anchor="middle" font-size="16" fill="#8d9a9f">Fahrzeuglänge · Seitenansicht</text>
+            <!-- Schatten -->
+            <ellipse cx="415" cy="352" rx="345" ry="10" fill="#000" opacity=".45"/>
+            <!-- Karosserie -->
+            <g stroke="#c9d4d8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+              <path fill="url(#body)" d="M74 334 L72 286 Q74 258 104 250 L168 240 Q232 232 262 226 C300 176 336 152 410 148 C486 146 528 156 574 202 L594 222 Q676 230 730 246 Q762 256 764 286 L764 334 L682 334 A62 62 0 0 0 558 334 L284 334 A62 62 0 0 0 160 334 Z"/>
+              <path fill="url(#glass)" stroke-width="1.6" d="M282 226 C312 186 340 168 404 164 L406 226 Z"/>
+              <path fill="url(#glass)" stroke-width="1.6" d="M420 164 C482 163 516 172 552 214 L556 226 L420 226 Z"/>
+              <path fill="none" stroke-width="1.4" d="M412 152 V330"/>
+              <path fill="none" stroke-width="1.2" d="M100 262 Q420 250 760 268" opacity=".55"/>
+              <path fill="none" stroke-width="1.4" d="M350 246h26M470 246h26"/>
+              <path fill="none" stroke-width="1.4" d="M560 228 Q620 236 650 300"/>
+            </g>
+            <path d="M738 258 l22 4 v14 l-24 -4 z" fill="#21b6c6" opacity=".55"/>
+            <path d="M76 262 l18 -3 v16 l-18 2 z" fill="#e0454b" opacity=".85"/>
+            <!-- Räder -->
+            <g>
+              <circle cx="222" cy="334" r="50" fill="#0a0d0e" stroke="#3a454a" stroke-width="2"/><circle cx="222" cy="334" r="30" fill="#2a3337" stroke="#c9d4d8" stroke-width="2"/><circle cx="222" cy="334" r="6" fill="#c9d4d8"/>
+              <circle cx="620" cy="334" r="50" fill="#0a0d0e" stroke="#3a454a" stroke-width="2"/><circle cx="620" cy="334" r="30" fill="#2a3337" stroke="#c9d4d8" stroke-width="2"/><circle cx="620" cy="334" r="6" fill="#c9d4d8"/>
+              <g stroke="#8d9a9f" stroke-width="1.6"><path d="M222 308v52M196 334h52M204 316l36 36M240 316l-36 36"/><path d="M620 308v52M594 334h52M602 316l36 36M638 316l-36 36"/></g>
+            </g>
+            <!-- Befunde -->
+            <g font-size="18">
+              <!-- 1 Stoßfänger hinten -->
+              <circle class="pulse" cx="96" cy="300" r="9" fill="#21b6c6"/>
+              <circle cx="96" cy="300" r="7" fill="#21b6c6" stroke="#111618" stroke-width="2.5"/>
+              <path d="M96 292 V96 H128" stroke="#8d9a9f" stroke-width="1" fill="none"/>
+              <text x="134" y="92" font-weight="600" fill="#ffffff">Stoßfänger hinten</text>
+              <text x="134" y="114" font-size="16" fill="#a9b7bb">Austausch erforderlich</text>
+              <!-- 2 Tür -->
+              <circle cx="352" cy="288" r="7" fill="#7fe3ec" stroke="#111618" stroke-width="2.5"/>
+              <path d="M352 280 V40 H384" stroke="#8d9a9f" stroke-width="1" fill="none"/>
+              <text x="390" y="36" font-weight="600" fill="#ffffff">Fahrertür · 118 µm</text>
+              <text x="390" y="58" font-size="16" fill="#a9b7bb">Originallack, unbeschädigt</text>
+              <!-- 3 Kotflügel -->
+              <circle class="pulse" cx="684" cy="268" r="9" fill="#21b6c6"/>
+              <circle cx="684" cy="268" r="7" fill="#21b6c6" stroke="#111618" stroke-width="2.5"/>
+              <path d="M684 260 V120 H652" stroke="#8d9a9f" stroke-width="1" fill="none"/>
+              <text x="646" y="116" text-anchor="end" font-weight="600" fill="#ffffff">Kotflügel vorn · 214 µm</text>
+              <text x="646" y="138" text-anchor="end" font-size="16" fill="#a9b7bb">Nachlackierung erkannt</text>
+            </g>
+          </svg>
+          <figcaption>Beispielhafte Schadenaufnahme – Werte zur Veranschaulichung</figcaption>
+        </figure>
   </div>
 </section>
 
