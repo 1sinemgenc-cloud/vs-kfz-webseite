@@ -1,0 +1,38 @@
+; ==================================================================
+;  DATEN DER WEBSEITE  –  SV Sachverständiger
+; ------------------------------------------------------------------
+;  So ändern Sie etwas:
+;  1. Nur den Text ZWISCHEN den Anführungszeichen "..." ändern.
+;  2. Die Anführungszeichen selbst stehen lassen.
+;  3. Datei speichern – fertig. Die Webseite zeigt die neuen Daten sofort.
+;
+;  Zeilen, die mit einem Semikolon ; beginnen, sind nur Hinweise.
+; ==================================================================
+
+
+; ---------- Firma ----------
+firma         = "SV Sachverständiger"
+inhaber       = "Volkan Aydindag"
+region        = "Ingolstadt, Pfaffenhofen und Umgebung"
+
+
+; ---------- Kontakt (erscheint auf der Webseite und im Impressum) ----------
+telefon       = "0000 / 000 000 00"
+email         = "info@ihre-domain.de"
+adresse       = "Musterstraße 1, 85049 Ingolstadt"
+
+
+; ---------- Anfrageformular ----------
+; An die E-Mail-Adresse oben (email) werden alle Anfragen geschickt.
+; Absender der Formular-E-Mails: eine Adresse Ihrer eigenen Domain.
+absender      = "webseite@ihre-domain.de"
+; Soll der Kunde automatisch eine Eingangsbestätigung bekommen? "ja" oder "nein"
+bestaetigung  = "ja"
+
+
+; ---------- Angaben für das Impressum ----------
+qualifikation = "Lackiertechniker, Kfz-Sachverständiger"
+zertifikat    = "Zertifizierung ergänzen"
+ustid         = "bitte ergänzen"
+versicherung  = "bitte ergänzen: Name und Sitz des Versicherers, Geltungsbereich"
+hoster        = "bitte ergänzen, z. B. ALL-INKL.COM – Neue Medien Münnich"

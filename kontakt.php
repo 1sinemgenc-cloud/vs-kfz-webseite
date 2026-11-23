@@ -1,13 +1,15 @@
 <?php
 /* ===================================================================
-   ANFRAGEFORMULAR – verschickt jede Anfrage als E-Mail
-   Nur diese zwei Zeilen anpassen:
+   ANFRAGEFORMULAR – verschickt jede Anfrage als E-Mail.
+   Hier muss nichts geändert werden: Alle Daten (Empfänger-E-Mail,
+   Absender, Telefon …) stehen in der Datei  daten.txt
    =================================================================== */
-$EMPFAENGER = 'info@ihre-domain.de';   // hier kommen die Anfragen an
-$ABSENDER   = 'webseite@ihre-domain.de'; // eine Adresse eurer eigenen Domain (muss nicht als Postfach existieren)
-$FIRMA      = 'SV Sachverständiger';
-$TELEFON    = '0000 / 000 000 00';
-$BESTAETIGUNG_AN_KUNDEN = true;          // Kunde bekommt automatisch eine Eingangsbestätigung
+$D = @parse_ini_file(__DIR__ . '/daten.txt') ?: [];
+$EMPFAENGER = $D['email']    ?? '';
+$ABSENDER   = $D['absender'] ?? $EMPFAENGER;
+$FIRMA      = $D['firma']    ?? 'SV Sachverständiger';
+$TELEFON    = $D['telefon']  ?? '';
+$BESTAETIGUNG_AN_KUNDEN = strtolower(trim($D['bestaetigung'] ?? 'ja')) !== 'nein';
 
 /* ---------- ab hier nichts ändern nötig ---------- */
 date_default_timezone_set('Europe/Berlin');
@@ -22,6 +24,7 @@ function feld($name) {
 function zeile($v) { return str_replace("\n", ' ', $v); } // keine Zeilenumbrüche in Kopfzeilen
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') antwort(false, 'Ungültiger Aufruf.');
+if (!filter_var($EMPFAENGER, FILTER_VALIDATE_EMAIL)) antwort(false, 'Die Anfrage konnte nicht gesendet werden.');
 if (feld('_gotcha') !== '') antwort(true); // Spam-Schutz: Bots füllen das unsichtbare Feld aus
 
 foreach (['Vorname', 'Nachname', 'Strasse', 'PLZ', 'Ort', 'Telefon', 'E-Mail', 'Hersteller', 'Modell', 'Kennzeichen', 'Beschreibung'] as $pflicht) {

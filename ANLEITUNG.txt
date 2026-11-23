@@ -1,0 +1,89 @@
+==================================================================
+  WEBSEITE SV SACHVERSTÄNDIGER – ANLEITUNG
+  Für alle, die etwas ändern möchten – ohne Vorkenntnisse.
+==================================================================
+
+
+1. WELCHE DATEIEN GIBT ES?
+------------------------------------------------------------------
+Die ganze Webseite besteht aus nur drei Dateien. Sie liegen beim
+Webhoster (z. B. ALL-INKL) im Hauptordner der Domain:
+
+  daten.txt     ->  Telefon, E-Mail, Adresse, Impressum.
+                    HIER ändern Sie Ihre Daten.
+
+  index.html    ->  Die Webseite selbst: Design, Texte, Logo.
+
+  kontakt.php   ->  Verschickt die Anfragen aus dem Formular
+                    als E-Mail. Hier nie etwas ändern.
+
+Diese Anleitung (ANLEITUNG.txt) kann ebenfalls dort liegen.
+
+
+2. DATEN ÄNDERN (Telefon, E-Mail, Adresse, Impressum)
+------------------------------------------------------------------
+  1. Beim Webhoster einloggen (Kundenbereich).
+  2. Den Dateimanager öffnen (heißt oft „Dateimanager“,
+     „Webspace“ oder „FTP“).
+  3. Die Datei  daten.txt  anklicken und „Bearbeiten“ wählen.
+  4. Nur den Text zwischen den Anführungszeichen ändern, z. B.:
+
+        telefon       = "0841 / 123 456 78"
+
+  5. Speichern. Die Webseite zeigt die neuen Daten sofort.
+
+  Wichtig:
+  - Die Anführungszeichen "..." stehen lassen.
+  - Die Wörter links vom Gleichheitszeichen nicht ändern.
+  - Neue E-Mail-Adresse? Einfach bei  email  eintragen. Ab dann
+    kommen auch alle Formular-Anfragen an diese Adresse.
+
+
+3. ANFRAGEN AUS DEM FORMULAR
+------------------------------------------------------------------
+Jede Anfrage kommt als E-Mail an die Adresse aus daten.txt (email).
+  - Betreff z. B.: „Neue Anfrage: Unfallgutachten – Max Muster – IN-AB123“
+  - Auf „Antworten“ klicken = Antwort geht direkt an den Kunden.
+  - Der Kunde bekommt automatisch eine Eingangsbestätigung.
+    Abschalten: in daten.txt  bestaetigung = "nein"
+
+Kommen keine Anfragen mehr an?
+  - Im Spam-Ordner nachsehen.
+  - In daten.txt prüfen, ob die E-Mail-Adresse stimmt.
+  - Beim Webhoster anrufen: „Mein PHP-Kontaktformular verschickt
+    keine E-Mails mehr“ – das können die prüfen.
+
+
+4. TEXTE ÄNDERN (z. B. eine neue Leistung)
+------------------------------------------------------------------
+Die Texte stehen in  index.html. Kleine Änderungen gehen so:
+  1. Vorher eine Sicherungskopie machen: index.html herunterladen.
+  2. index.html im Dateimanager mit „Bearbeiten“ öffnen.
+  3. Mit der Suche (Strg + F) das Wort suchen, das geändert werden
+     soll, z. B. „Oldtimer“.
+  4. Nur den sichtbaren Text ändern, nichts in spitzen Klammern < >.
+  5. Speichern und die Webseite im Browser neu laden.
+  Hat etwas nicht geklappt? Die Sicherungskopie wieder hochladen.
+
+Für größere Änderungen (neuer Bereich, neues Design) kann JEDER
+Webdesigner helfen: Die Seite ist reines HTML ohne besondere Software,
+ohne Baukasten und ohne Abhängigkeit von einer Person oder Firma.
+
+
+5. SICHERUNG
+------------------------------------------------------------------
+Alle drei Dateien einmal herunterladen und an einem sicheren Ort
+speichern (z. B. USB-Stick oder Cloud). Damit lässt sich die Webseite
+bei jedem Anbieter in wenigen Minuten wiederherstellen.
+
+
+6. WICHTIGE ZUGÄNGE (bitte sicher aufbewahren, z. B. im Ordner im Büro)
+------------------------------------------------------------------
+  Webhoster:            ______________________________
+  Kundennummer/Login:   ______________________________
+  Domain:               ______________________________
+  E-Mail-Postfach:      ______________________________
+
+  Die Domain und das Hosting sollten auf den Namen der Firma bzw.
+  des Inhabers laufen – dann hängt nichts von einer einzelnen
+  Person ab.
